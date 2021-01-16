@@ -76,8 +76,8 @@ app.post('/urgent/make', bodyParser.json(), (req, res) => {
 
 // GET
 
-app.get('/urgent/details/:id', bodyParser.json(), (req, res) => {
-    console.log(`body: ${req.body}, params: ${req.params}`);
+app.get('/urgent/details/:id', (req, res) => {
+    console.log(req.params);
     res.send('/urgent/details/<id> is hit')
 })
 
