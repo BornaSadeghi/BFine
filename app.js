@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const Donor = require('/models/donor.js');
+const Donor = require('./models/donor.js');
 
 const PORT = 5000;
 const app = express();
