@@ -21,6 +21,8 @@
   "homepage": "https://github.com/BornaSadeghi/BFine#readme",
   "dependencies": {
     "concurrently": "^5.3.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nexmo": "^2.9.1"
   }
 }
