@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const PORT = 5000;
 const app = express();
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 })
 
 // Authentication endpoint
-app.post('/auth', (req, res) => {
+app.post('/auth', bodyParser.json(), (req, res) => {
     console.log(req.body);
     res.send('/auth is hit');
 })
