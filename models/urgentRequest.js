@@ -1,16 +1,11 @@
 const mongoose = require('mongoose');
 
 const urgentRequestSchema = mongoose.Schema({
-    email: String,
-    phoneNumber: String,
-    bloodGroupRequired: String,
+    id: String,
     status: String,
-    nearestBloodBanks: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "BloodBank"
-        }
-    ]
+    bloodType: String,
+    unitsNeeded: Number,
+    date: mongoose.Schema.Types.Date
 });
 
 module.exports = mongoose.model("UrgentRequest", urgentRequestSchema);
