@@ -5,7 +5,7 @@ const donorSchema = mongoose.Schema({
     email: String,
     phoneNumber: String,
     gender: String,
-    DOB: date,
+    DOB: mongoose.Schema.Types.Date,
     address: {
         location: String,
         lat: Number,
