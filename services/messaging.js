@@ -72,9 +72,11 @@ message.check_otp = (request_id, otp) => {
             code: otp
           }, (err, result) => {
             if (err) {
-                reject("Incorrect OTP");
-            } else {
+                reject("Server Error - Could not verify OTP.");
+            } else if (result.status == '0') {
                 resolve();
+            } else {
+                reject("Incorrect OTP");
             }
           });
     });

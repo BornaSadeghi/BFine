@@ -8,10 +8,10 @@ auth.init = async(number) => {
     try {
 
         let request_id = await message.otp(number);
-        return {res: true, request_id: request_id};
+        return {resolved: true, request_id: request_id};
 
     } catch(e) {
-        return {res: false, reason: e.message};;
+        return {resolved: false, reason: e};;
     }
 }
 
@@ -26,7 +26,7 @@ auth.establish = async(request_id, otp) => {
         return {res: true, session_id: null};
 
     } catch(e) {
-        return {res: false, reason: e.message};;
+        return {res: false, reason: e};;
     }
 }
 
