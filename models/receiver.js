@@ -17,7 +17,6 @@ const receiverSchema = mongoose.Schema({
         type: String,
         IDNum: Number
     },
-    isUrgentDonor: Boolean,
     receptionRecords: [
         {
             type: mongoose.Schema.Types.ObjectId,
