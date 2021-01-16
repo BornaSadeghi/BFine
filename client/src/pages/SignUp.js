@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/SignUp.css';
+import CreateDonor from '../components/CreateDonor';
 
 function SignUp() {
     return (
         <div>
-            <h1>Sign Up</h1>
+            <CreateDonor />
         </div>
     )
 }
