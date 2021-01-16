@@ -11,6 +11,7 @@ export default class CreateDonor extends Component {
         this.onChangeGender = this.onChangeGender.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangeBloodGroup = this.onChangeBloodGroup.bind(this);
+        this.onChangeGovID = this.onChangeGovID.bind(this);
 
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -19,6 +20,7 @@ export default class CreateDonor extends Component {
             email: "",
             phone_number: "",
             gender: "",
+            gov_id: "",
             address: "",
             blood_group: "",
         }
@@ -37,6 +39,11 @@ export default class CreateDonor extends Component {
     onChangeGender(e){
         this.setState({
             gender: e.target.value 
+        });
+    }
+    onChangeGovID(e){
+        this.setState({
+            gov_id: e.target.value 
         });
     }
     onChangePhoneNumber(e){
@@ -65,6 +72,7 @@ export default class CreateDonor extends Component {
             gender: this.state.gender,
             address: this.state.address,
             blood_group: this.state.blood_group,
+            gov_id: this.state.gov_id
         }
 
         axios.post('http://localhost:3000/newuser', donorUser)
@@ -77,6 +85,7 @@ export default class CreateDonor extends Component {
             gender: '',
             address: '',
             blood_group: '',
+            gov_id: '',
         })
     }
 
@@ -123,13 +132,20 @@ export default class CreateDonor extends Component {
                     </div>
                     <div className="form-group">
                         <label>Address: </label>
-
-                        <label>Location: </label>
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.address.location}
+                        value={this.state.address}
                         onChange={this.onChangeAddress}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Government ID Number: </label>
+                        <input 
+                        type="text"
+                        className="form-control"
+                        value={this.state.gov_id}
+                        onChange={this.onChangeGovID}
                         />
                     </div>
                     <div className="form-group">
@@ -142,7 +158,7 @@ export default class CreateDonor extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-primary"/>
+                        <input type="submit" value="Sign up" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>

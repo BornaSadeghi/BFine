@@ -1,13 +1,15 @@
 import React from 'react';
 import '../styles/SignUp.css';
 import CreateDonor from '../components/CreateDonor';
+import LoginDonor from '../components/LoginDonor';
 
-function SignUp() {
+function DonorSignUp() {
     return (
         <div>
             <CreateDonor />
+            <LoginDonor />
         </div>
     )
 }
 
-export default SignUp;
+export default DonorSignUp;

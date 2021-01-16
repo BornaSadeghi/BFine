@@ -4,16 +4,16 @@ export const NavbarData = [
         path: '/',
     },
     {
-        title: 'Find Donation Centre',
-        path: '/find-donation-centre',
-    }, 
-    {
         title: 'Profile',
         path: '/profile',
     }, 
     {
-        title: 'SignUp',
-        path: '/signup',
+        title: 'Donor SignUp',
+        path: '/donor-signup',
+    }, 
+    {
+        title: 'Bank SignUp',
+        path: '/bank-signup',
     }, 
     {
         title: 'Login',
