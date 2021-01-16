@@ -27,7 +27,7 @@ app.post('/auth', bodyParser.json(), (req, res) => {
 })
 
 // User creation endpoint
-app.post('/newuser', (req, res) => {
+app.post('/newuser', bodyParser.json(), (req, res) => {
     console.log(req.body);
     res.send('/newuser is hit');
 })
