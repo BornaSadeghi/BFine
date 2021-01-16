@@ -8,16 +8,16 @@ const Donor = require('./models/Donor.js');
 
 const PORT = 5000;
 const app = express();
-///const mongo_url = process.env.DB_URL;
+const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
 app.use(bodyParser.json())
 
-/*mongoose.connect(mongo_url, {
+mongoose.connect(mongo_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
     console.log("Connected to database.")
-})*/
+})
 
 app.get('/', (req, res) => {
     res.send('base url');
