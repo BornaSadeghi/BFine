@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavbarData } from './NavbarData';
 import { Link } from 'react-router-dom';
+import bloodLogo from '../assets/logo192.png';
 import '../styles/Navbar.css';
-import logo from '../assets/logo192.png';
 
 function Navbar() {
     return (
         <div className="nav-flexbox-wrapper">
-            <div className="nav-flexbox-container-1">
-                <img className="nav-logo" src={ logo } alt="logo"></img>
+            <div className="nav-logo-container">
+                <img className="nav-logo" src={ bloodLogo } alt="logo"></img>
             </div>
-            <div className="nav-flexbox-container-2">
-                <div className="nav-links">
+            <div className="nav-flexbox-item">
+                <div className="navbar">
                     {
                         NavbarData.map((item, index) => {
                             return (

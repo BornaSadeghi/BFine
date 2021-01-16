@@ -14,9 +14,5 @@ export const NavbarData = [
     {
         title: 'Bank SignUp',
         path: '/bank-signup',
-    }, 
-    {
-        title: 'Login',
-        path: '/login',
-    }, 
+    },  
 ]

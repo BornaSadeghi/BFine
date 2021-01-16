@@ -35,7 +35,7 @@ export default class CreateDonor extends Component {
             code: this.state.code,
         }
 
-        axios.post('http://localhost:3000/auth', donorUser)
+        axios.post('http://localhost:3000/auth/init', donorUser)
         .then(res => console.log(res.data));
 
         this.setState({
