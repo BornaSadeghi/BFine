@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const bloodBankSchema = mongoose.Schema({
-    name: String,
-    email: String,
-    phoneNumber: String,
+    name: String, 
+    helplineNumber: String, // for public search result    
+    officeNumber: String, // for login 
     address: {
         location: String,
         lat: Number,
@@ -17,28 +17,16 @@ const bloodBankSchema = mongoose.Schema({
             O: Number,
         },
         blood: {
-            "A+": Number,
-            "B+": Number,
-            "AB+": Number,
-            "O+": Number,
-            "A-": Number,
-            "B-": Number,
-            "AB-": Number,
-            "O-": Number,
-        },
-    },
-    donationRecords: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Donation"
-        }
-    ],
-    distributionRecords: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Reception"
-        }
-    ]
+            'A+': Number,
+            'B+': Number,
+            'AB+': Number,
+            'O+': Number,
+            'A-': Number,
+            'B-': Number,
+            'AB-': Number,
+            'O-': Number, 
+        } 
+    }     
 });
 
 module.exports = mongoose.model("BloodBank", bloodBankSchema);
