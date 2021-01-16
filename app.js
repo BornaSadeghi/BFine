@@ -27,10 +27,18 @@ app.get('/', (req, res) => {
 /**
  * Takes the mobile number and user type (donor/bloodbank) and responds with a verification code, sent
  * to the user through SMS.
+ * (Maybe also send the entire donor?)
  */
-app.post('/auth/init', bodyParser.json(), (req, res) => {
+app.post('/auth/init', bodyParser.json(), (req, res) => { // may need to make this callback async
     console.log(req.body);
-    res.send('/auth/init is hit');
+
+    /*
+    const auth = require('services/auth');
+
+    auth.init(req.phoneNumber).then(code => console.log(code)); // res.send the code
+    */
+
+    res.send({'verification_code': 'dskrfjd98r789rfs6f657sf59d78f'}); // fake verification code
 })
 
 /**
