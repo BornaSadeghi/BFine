@@ -9,7 +9,7 @@ const donorSchema = mongoose.Schema({
         long: Number
     },
     bloodType: String,
-    IsUrgentDonor: Bool,
+    IsUrgentDonor: Boolean,
     govtId: String
 });
 

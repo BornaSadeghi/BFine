@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     res.send('base url');
 })
 
-// ENDPOINTS
+// POST
 
 /**
  * Takes the mobile number and user type (donor/bloodbank) and responds with a verification code, sent
