@@ -21,15 +21,33 @@ app.get('/', (req, res) => {
 })
 
 // Authentication endpoint
+
+/**
+ * Compare login credentials to database credentials, and if they match, allow access
+ */
 app.post('/auth', bodyParser.json(), (req, res) => {
     console.log(req.body);
     res.send('/auth is hit');
 })
 
-// User creation endpoint
-app.post('/newuser', bodyParser.json(), (req, res) => {
-    console.log(req.body);
-    res.send('/newuser is hit');
+// User creation endpoints
+
+/**
+ * Create a new donor user and add it to the database.
+ */
+app.post('/newuser-donor', bodyParser.json(), (req, res) => {
+    const user = req.body;
+    console.log(user);
+    res.send('/newuser-donor is hit');
+})
+
+/**
+ * Create a new receiver user and add it to the database.
+ */
+app.post('/newuser-receiver', bodyParser.json(), (req, res) => {
+    const user = req.body;
+    console.log(user);
+    res.send('/newuser-reciever is hit');
 })
 
 app.listen(PORT, () => {
