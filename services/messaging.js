@@ -3,8 +3,8 @@ const Nexmo = require('nexmo');
 require('dotenv').config();
 
 const gateway = new Nexmo({
-  apiKey: '7ea0bb75',
-  apiSecret: 'EK221dA3ZZ2jVlMh',
+  apiKey: process.env.NEXMO_API_KEY,
+  apiSecret: process.env.NEXMO_API_SECRET,
   applicationId: process.env.NEXMO_APPLICATION_ID,
   privateKey: process.env.NEXMO_PRIVATE_KEY.replace(/\\n/g, '\n')
 });
