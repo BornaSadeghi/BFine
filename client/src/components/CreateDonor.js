@@ -144,7 +144,7 @@ export default class CreateDonor extends Component {
                         />
                     </div>
                     <div className="form-group-1 button">
-                        <input type="submit" value="Sign up" className="btn btn-primary"/>
+                        <input type="submit" value="Sign up" className="btn-1 btn-primary-1"/>
                     </div>
                 </form>
             </div>

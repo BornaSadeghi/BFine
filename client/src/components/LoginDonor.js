@@ -90,7 +90,7 @@ export default class CreateDonor extends Component {
                         />
                     </div>
                     <div className="form-group-1 button">
-                        <input type="submit" value="Submit" className="btn btn-primary"/>
+                        <input type="submit" value="Submit" className="btn-1 btn-primary-1"/>
                     </div>
                 </form>
             </div>

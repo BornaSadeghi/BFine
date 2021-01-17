@@ -70,7 +70,7 @@ class GoogleSuggest extends React.Component {
                                         placeholder="Search a location"
                                         onChange={this.handleInputChange.bind(this)}
                                     />
-                                    <input type="submit" value="Find Blood Banks" className="btn mt-0 btn-primary" />
+                                    <input type="submit" value="Find Blood Banks" className="btn-1 mt-0 btn-primary-1" />
                                 </form>
                             </ReactGooglePlacesSuggest>
                         </div>

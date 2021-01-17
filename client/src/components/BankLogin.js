@@ -4,7 +4,7 @@ import '../styles/Login.css';
 import { Redirect } from 'react-router';
 
 export default class BankLogin extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.onChangeCode = this.onChangeCode.bind(this);
@@ -20,21 +20,21 @@ export default class BankLogin extends Component {
         }
     }
 
-    onChangeCode(e){
+    onChangeCode(e) {
         this.setState({
-            code: e.target.value 
+            code: e.target.value
         });
     }
-    onChangePhoneNumber(e){
+    onChangePhoneNumber(e) {
         this.setState({
-            phoneNumber: e.target.value 
+            phoneNumber: e.target.value
         });
     }
 
     onSubmit(e) {
         e.preventDefault();
 
-        if (this.state.codeSent){ // do auth.establish
+        if (this.state.codeSent) { // do auth.establish
             console.log('codeSent = true')
             axios.post('http://localhost:3000/auth/establish', {
                 request_id: this.state.request_id,
@@ -42,55 +42,55 @@ export default class BankLogin extends Component {
                 phoneNumber: this.state.phoneNumber,
                 type: "donor"
             })
-            .then(res => {
-                console.log(res.data);
-                if (res.data.exists){ // if user exists already
-                    window.location.assign('/search')
-                } else {
-                    window.location.assign('/donor-signup')
-                }
-                
-            }).catch(err => console.log(err));
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.exists) { // if user exists already
+                        window.location.assign('/search')
+                    } else {
+                        window.location.assign('/donor-signup')
+                    }
+
+                }).catch(err => console.log(err));
         } else { // do auth.init
-            axios.post('http://localhost:3000/auth/init', {phoneNumber: this.state.phoneNumber})
-            .then(res => {
-                this.setState({
-                    request_id: res.data.request_id,
-                    codeSent: true
+            axios.post('http://localhost:3000/auth/init', { phoneNumber: this.state.phoneNumber })
+                .then(res => {
+                    this.setState({
+                        request_id: res.data.request_id,
+                        codeSent: true
+                    })
+                    console.log(this.state.request_id)
                 })
-                console.log(this.state.request_id)
-            })
-            .catch(err => {
-                console.log(err);
-            })
+                .catch(err => {
+                    console.log(err);
+                })
         }
     }
 
-    render () {
+    render() {
         return (
             <div className="donor-wrapper">
                 <h3 className="donor-title">Blood Bank Login</h3>
                 <form className="form-wrapper" onSubmit={this.onSubmit}>
                     <div className="form-group first">
                         <label>Phone Number: </label>
-                        <input 
-                        type="text"
-                        className="form-control"
-                        value={this.state.phoneNumber}
-                        onChange={this.onChangePhoneNumber}
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.phoneNumber}
+                            onChange={this.onChangePhoneNumber}
                         />
                     </div>
                     <div className="form-group last">
                         <label>Verification Code: </label>
                         <input disabled={this.state.codeSent ? "" : "disabled"}
-                        type="text"
-                        className="form-control"
-                        value={this.state.code}
-                        onChange={this.onChangeCode}
+                            type="text"
+                            className="form-control"
+                            value={this.state.code}
+                            onChange={this.onChangeCode}
                         />
                     </div>
                     <div className="form-group button">
-                        <input type="submit" value="Submit" className="btn btn-primary"/>
+                        <input type="submit" value="Submit" className="btn-1 btn-primary-1" />
                     </div>
                 </form>
             </div>
