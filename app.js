@@ -4,12 +4,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const Donor = require('./models/Donor.js');
+//const Donor = require('./models/Donor.js');
 
 const PORT = 5000;
 const app = express();
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
+const bloodBank = require('./models/bloodBank');
 app.use(bodyParser.json())
 
 mongoose.connect(mongo_url, {
@@ -31,7 +32,6 @@ app.get('/', (req, res) => {
  * (Maybe also send the entire donor?)
  */
 app.post('/auth/init', async(req, res) => {
-    console.log(req.body);
     let result = await auth.init(req.body.phoneNumber);
     res.send(result);
 })
@@ -41,8 +41,8 @@ app.post('/auth/init', async(req, res) => {
  * (yes/no)
  */
 app.post('/auth/establish', async(req, res) => {
-    console.log(req.body);
-    let result = await auth.establish(req.body.request_id, req.body.otp);
+    let result = await auth.establish(req.body.request_id, req.body.otp, req.body.phoneNumber, req.body.type);
+    
     res.send(result);
 })
 
