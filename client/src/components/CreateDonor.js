@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
 
@@ -109,7 +109,7 @@ export default class CreateDonor extends Component {
                     <div className="form-group">
                         <label>Is Urgent Donor: </label>
                         <input 
-                        type="text"
+                        type="checkbox"
                         className="form-control"
                         value={this.state.IsUrgentDonor}
                         onChange={this.onChangeIsUrgentDonor}
