@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import MyProfile from './pages/MyProfile';
 import DonorSignUp from './pages/DonorSignUp';
+import DonorLogin from './pages/DonorLogin';
 import BankSignUp from './pages/BankSignUp';
 
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={ Home }/>
           <Route path='/donor-signup' component={ DonorSignUp }/>
+          <Route path='/donor-login' component={ DonorLogin }/>
           <Route path='/bank-signup' component={ BankSignUp }/>
           <Route path='/profile' component={ MyProfile }/>
         </Switch>

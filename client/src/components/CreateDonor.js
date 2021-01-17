@@ -68,8 +68,10 @@ export default class CreateDonor extends Component {
             govtId: this.state.govtId
         }
 
-        axios.post('http://localhost:3000/auth/init', donorUser)
-        .then(res => console.log(res.data));
+        axios.post('http://localhost:3000/auth/init', donorUser) // auth.init
+        .then(res => {
+            console.log(res.data)
+        });
 
         this.setState({
             name: '',

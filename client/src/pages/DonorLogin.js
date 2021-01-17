@@ -6,7 +6,7 @@ import LoginDonor from '../components/LoginDonor';
 function DonorSignUp() {
     return (
         <div>
-            <CreateDonor />
+            <LoginDonor />
         </div>
     )
 }
