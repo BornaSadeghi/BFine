@@ -93,7 +93,24 @@ app.post('/updateBankStock', bodyParser.json(), async (req, res) => {
     console.log(req.body);
 
     const bloodBank = await BloodBank.findOneAndUpdate({ officeNumber: req.body.officeNumber }, {
-        stock: req.body.stock
+        stock: {
+            plasma: {
+                A: req.body.stock.plasma.A,
+                B: req.body.stock.plasma.B,
+                AB: req.body.stock.plasma.AB,
+                O: req.body.stock.plasma.O,
+            },
+            blood: {
+                'A+': req.body.stock.blood['A+'],
+                'B+': req.body.stock.blood['B+'],
+                'AB+': req.body.stock.blood['AB+'],
+                'O+': req.body.stock.blood['O+'],
+                'A-': req.body.stock.blood['A-'],
+                'B-': req.body.stock.blood['B-'],
+                'AB-': req.body.stock.blood['AB-'],
+                'O-': req.body.stock.blood['O-'], 
+            } 
+        }  
     }, {
         useFindAndModify: false
     })
