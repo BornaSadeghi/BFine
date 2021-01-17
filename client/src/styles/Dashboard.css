@@ -70,7 +70,7 @@
       padding: 3vh;
       margin: 3vh;
       width: fit-content;
-      margin-left: 15vh;
+      margin-left: 52vh;
       background-color: rgb(231, 228, 228);
   }
 
@@ -88,4 +88,6 @@
 
 .dash-map {
     border-radius: 40px;
+    margin: 3vh;
+    margin-left: 49vh;
 }
