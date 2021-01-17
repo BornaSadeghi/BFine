@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
+import { Redirect } from 'react-router';
 
 export default class CreateDonor extends Component {
     constructor(props){
@@ -13,7 +14,9 @@ export default class CreateDonor extends Component {
 
         this.state = {
             phoneNumber: "",
-            code: ""
+            code: "", // verification code
+            codeSent: false, // unlocks verification code input
+            request_id: null
         }
     }
 
@@ -31,18 +34,31 @@ export default class CreateDonor extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const donorUser = {
-            phoneNumber: this.state.phoneNumber,
-            code: this.state.code,
+        if (this.state.codeSent){ // do auth.establish
+            console.log('hoho')
+            axios.post('http://localhost:3000/auth/establish', {
+                request_id: this.state.request_id,
+                otp: this.state.code,
+                phoneNumber: this.state.phoneNumber,
+                type: "donor"
+            })
+            .then(res => {
+                console.log(res.data);
+            }).catch(err => console.log(err));
+            <Redirect to="/search"/>
+        } else { // do auth.init
+            axios.post('http://localhost:3000/auth/init', {phoneNumber: this.state.phoneNumber})
+            .then(res => {
+                this.setState({
+                    request_id: res.data.request_id,
+                    codeSent: true
+                })
+                console.log(this.state.request_id)
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
-
-        axios.post('http://localhost:3000/auth/init', donorUser)
-        .then(res => console.log(res.data));
-
-        this.setState({
-            phoneNumber: '',
-            code: '',
-        })
     }
 
     render () {
@@ -61,7 +77,7 @@ export default class CreateDonor extends Component {
                     </div>
                     <div className="form-group last">
                         <label>Verification Code: </label>
-                        <input disabled
+                        <input disabled={this.state.codeSent ? "" : "disabled"}
                         type="text"
                         className="form-control"
                         value={this.state.code}
@@ -69,7 +85,7 @@ export default class CreateDonor extends Component {
                         />
                     </div>
                     <div className="form-group button">
-                        <input type="submit" value="Login" className="btn btn-primary"/>
+                        <input type="submit" value="Submit" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>

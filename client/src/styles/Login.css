@@ -33,8 +33,8 @@ body, html {
 .form-wrapper {
     border-radius: 60px;
     background-color: rgb(133, 133, 133);
-    margin-right: 55vh;
-    margin-left: 55vh;
+    margin-right: 25vh;
+    margin-left:25vh;
 }
 
 label {
