@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bloodBankSchema = mongoose.Schema({
     name: String, 
     helplineNumber: String, // for public search result    
-    officeNumber: String, // for login 
+    phoneNumber: String, // for login 
     address: {
         location: String,
         lat: Number,
