@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const bkw = require('./background-workers/manager');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -146,3 +146,6 @@ app.get('/urgent/details/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 })
+
+
+bkw.init();

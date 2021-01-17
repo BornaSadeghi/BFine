@@ -5,7 +5,7 @@ const bloodBankSchema = mongoose.Schema({
     helplineNumber: String, // for public search result    
     phoneNumber: String, // for login 
     address: {
-        location: String,
+        address: String,
         lat: Number,
         long: Number
     },

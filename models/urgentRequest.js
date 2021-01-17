@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const urgentRequestSchema = mongoose.Schema({
-    id: String,
+    bloodBankId: String,
     status: String,
     bloodType: String,
     unitsNeeded: Number,
+    attempt: Number,
     date: mongoose.Schema.Types.Date
 });
 
