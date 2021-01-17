@@ -12,6 +12,7 @@ const BloodBank = require('./models/bloodBank');
 
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
+const reqs = require('./services/requests');
 const donor = require('./models/donor.js');
 
 app.use(bodyParser.json())
@@ -131,16 +132,18 @@ app.post('/search', bodyParser.json(), (req, res) => {
 /**
  * Takes UrgentRequest object, returns true or false
  */
-app.post('/urgent/make', bodyParser.json(), (req, res) => {
+app.post('/ur/make', bodyParser.json(), (req, res) => {
     console.log(req.body);
-    res.send('/updateBankStock is hit')
+    let result = await reqs.make(req.body);
+    res.send(result);
 })
 
 // GET
 
-app.get('/urgent/details/:id', (req, res) => {
+app.get('/ur/:id/:number', async(req, res) => {
     console.log(req.params);
-    res.send('/urgent/details/<id> is hit')
+    await reqs.close(req.params.id, req.params.number);
+    res.send('Thanks for accepting the request. The blood bank will call you shortly.');
 })
 
 app.listen(PORT, () => {

@@ -81,7 +81,7 @@ contactDonors = (list, bank, req) => {
                 if (req.attempt == 0) {
                     console.log(bank);
                     await message.sms(`Hello ${donor.name}, We are in urgent need of ${req.unitsNeeded} units of ${req.bloodType} blood at ` + 
-                    `${bank.name} - ${bank.address.address}. If you would be willing to donate, please click the link below: [placeholder] - BFine`, donor.phoneNumber);
+                    `${bank.name} - ${bank.address.address}. If you would be willing to donate, please click the link below: http://localhost:5000/ur/${req._id}/${donor.phoneNumber} - BFine`, donor.phoneNumber);
                 } else {
                     await message.tts(`Hello ${donor.name}... This is a call from Bee Fine... We are in urgent need of ${req.unitsNeeded} units of your
                     blood type... at ${bank.name}... We have sent further details over SMS... Do note that we are having difficulty in finding a donor...
