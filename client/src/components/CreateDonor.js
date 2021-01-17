@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../styles/Login.css';
 
 export default class CreateDonor extends Component {
     constructor(props){
@@ -91,8 +92,8 @@ export default class CreateDonor extends Component {
 
     render () {
         return (
-            <div>
-                <h3>Create New User</h3>
+            <div className="donor-wrapper">
+                <h3 className="donor-title">Create New Donor</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Name: </label>
