@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
 
@@ -87,8 +87,8 @@ export default class CreateDonor extends Component {
         return (
             <div className="donor-wrapper">
                 <h3 className="donor-title">Create New Donor</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
+                <form className="form-wrapper" onSubmit={this.onSubmit}>
+                    <div className="form-group first">
                         <label>Name: </label>
                         <input 
                         type="text"
@@ -109,7 +109,7 @@ export default class CreateDonor extends Component {
                     <div className="form-group">
                         <label>Is Urgent Donor: </label>
                         <input 
-                        type="text"
+                        type="checkbox"
                         className="form-control"
                         value={this.state.IsUrgentDonor}
                         onChange={this.onChangeIsUrgentDonor}
@@ -142,7 +142,7 @@ export default class CreateDonor extends Component {
                         onChange={this.onChangeBloodType}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group button">
                         <input type="submit" value="Sign up" className="btn btn-primary"/>
                     </div>
                 </form>
