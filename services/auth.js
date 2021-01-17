@@ -14,7 +14,7 @@ auth.init = async(phoneNumber) => {
         return {res: true, request_id: request_id};
 
     } catch(e) {
-        return {res: false, reason: e};;
+        return {res: false, reason: e};
     }
 }
 
@@ -73,7 +73,7 @@ auth.verifySession = async(sessionId) => {
         else {
             if (docs) {
                 if (new Date() - docs.timestamp < 86400000) {
-                    return {res: true};
+                    return {res: true, details: docs};
                 } else {
                     return {res: false};
                 }

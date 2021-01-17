@@ -136,6 +136,20 @@ app.post('/urgent/make', bodyParser.json(), (req, res) => {
     res.send('/updateBankStock is hit')
 })
 
+/**
+ * Takes session ID, returns true/false depending on whether session id is valid
+ */
+app.post('/checkLoggedIn', bodyParser.json(), (req, res) => {
+    res.send(auth.verifySession(req.body.sessionId))
+})
+
+/**
+ * Takes session ID, destroys session record in database.
+ */
+app.post('/logout', bodyParser.json(), (req, res) => {
+    res.send(auth.purgeSession(req.body.sessionId))
+})
+
 // GET
 
 app.get('/urgent/details/:id', (req, res) => {
