@@ -42,7 +42,7 @@ class GoogleSuggest extends React.Component {
             });
 
         // redirect
-        window.location.href = "http://localhost:3000/search";
+        window.location.href = `http://localhost:3000/search?q=${this.state.value}`;
     }
 
     render() {
