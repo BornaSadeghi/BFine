@@ -117,7 +117,7 @@ app.post('/updateBankStock', bodyParser.json(), async (req, res) => {
         useFindAndModify: false
     })
 
-    res.send(`updated bank stock for bank: ${bloodBank}`);
+    res.send(`updated blood stock for bank: ${bloodBank}`);
 })
 
 /**
