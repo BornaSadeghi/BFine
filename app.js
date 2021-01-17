@@ -4,13 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-//const Donor = require('./models/Donor.js');
-
 const PORT = 5000;
 const app = express();
+
+const Donor = require('./models/donor.js');
+const BloodBank = require('./models/bloodBank');
+
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
-const bloodBank = require('./models/bloodBank');
+
 app.use(bodyParser.json())
 
 mongoose.connect(mongo_url, {
@@ -27,9 +29,8 @@ app.get('/', (req, res) => {
 // POST
 
 /**
- * Takes the mobile number and user type (donor/bloodbank) and responds with a verification code, sent
+ * Takes the mobile number and and responds with a verification code, sent
  * to the user through SMS.
- * (Maybe also send the entire donor?)
  */
 app.post('/auth/init', async(req, res) => {
     let result = await auth.init(req.body.phoneNumber);
@@ -39,6 +40,20 @@ app.post('/auth/init', async(req, res) => {
 /**
  * Takes verification code and phone number, responds with session id and if user is already registered
  * (yes/no)
+ * 
+ * Takes:
+ * {
+ *  phoneNumber
+ *  request_id
+ *  verificationCode (otp)
+ *  type
+ * }
+ * 
+ * Responds with:
+ * {
+ *  sessionId
+ * }
+ * 
  */
 app.post('/auth/establish', async(req, res) => {
     let result = await auth.establish(req.body.request_id, req.body.otp, req.body.phoneNumber, req.body.type);
@@ -51,6 +66,23 @@ app.post('/auth/establish', async(req, res) => {
  */
 app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
     console.log(req.body);
+
+    const donor = new Donor({
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber,
+        // TODO use gmaps api to find lat and long of address
+        address: {
+            location: req.body.address,
+            lat: 0, // temporary
+            long: 0
+        },
+        bloodType: req.body.bloodType,
+        isUrgentDonor: req.body.isUrgentDonor,
+        govtId: req.body.govtId
+    })
+
+    donor.save().then(() => console.log(`Donor added to database:\n${donor}`));
+
     res.send('/updateDonorProfile is hit');
 })
 
