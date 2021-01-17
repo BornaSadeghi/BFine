@@ -4,10 +4,10 @@ const message = require('./messaging');
 
 const auth = {};
 
-auth.init = async(number) => {
+auth.init = async(phoneNumber) => {
     try {
 
-        let request_id = await message.otp(number);
+        let request_id = await message.otp(phoneNumber);
         return {resolved: true, request_id: request_id};
 
     } catch(e) {
