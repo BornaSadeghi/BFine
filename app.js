@@ -132,7 +132,7 @@ app.post('/search', bodyParser.json(), (req, res) => {
 /**
  * Takes UrgentRequest object, returns true or false
  */
-app.post('/ur/make', bodyParser.json(), (req, res) => {
+app.post('/ur/make', bodyParser.json(), async(req, res) => {
     console.log(req.body);
     let result = await reqs.make(req.body);
     res.send(result);

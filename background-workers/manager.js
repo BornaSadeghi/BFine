@@ -2,7 +2,7 @@ const uworker = require('./workers/urgent-requests');
 
 
 
-const interval = 30000;
+const interval = 300000;
 
 let bkw = {}; 
 
