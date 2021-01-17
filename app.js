@@ -4,12 +4,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const Donor = require('./models/Donor.js');
-
 const PORT = 5000;
 const app = express();
+
+const Donor = require('./models/donor.js');
+const BloodBank = require('./models/bloodBank');
+
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
+const donor = require('./models/donor.js');
+
 app.use(bodyParser.json())
 
 mongoose.connect(mongo_url, {
@@ -26,40 +30,94 @@ app.get('/', (req, res) => {
 // POST
 
 /**
- * Takes the mobile number and user type (donor/bloodbank) and responds with a verification code, sent
+ * Takes the mobile number and and responds with a verification code, sent
  * to the user through SMS.
- * (Maybe also send the entire donor?)
  */
 app.post('/auth/init', async(req, res) => {
-    console.log(req.body);
     let result = await auth.init(req.body.phoneNumber);
     res.send(result);
 })
 
 /**
- * Takes verification code and phone number, responds with session id and if user is already registered
+ * Takes verification code and phone number, responds with session id and if user already exists
  * (yes/no)
+ * 
+ * Takes:
+ * {
+ *  phoneNumber
+ *  request_id
+ *  verificationCode (otp)
+ *  type
+ * }
+ * 
+ * Responds with:
+ * {
+ *  res
+ *  exists
+ *  sessionId
+ * }
+ * 
  */
 app.post('/auth/establish', async(req, res) => {
-    console.log(req.body);
-    let result = await auth.establish(req.body.request_id, req.body.otp);
+    let result = await auth.establish(req.body.request_id, req.body.otp, req.body.phoneNumber, req.body.type);
+    
     res.send(result);
 })
 
 /**
  * Takes an object with donor fields, updates donor in database, responds true or false
  */
-app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
+app.post('/updateDonorProfile', bodyParser.json(), async (req, res) => {
     console.log(req.body);
-    res.send('/updateDonorProfile is hit');
+
+    const donor = await Donor.findOneAndUpdate({ phoneNumber: req.body.phoneNumber }, {
+        name: req.body.name,
+        // TODO use gmaps api to find lat and long of address
+        address: {
+            location: req.body.address,
+            lat: 0, // temporary
+            long: 0
+        },
+        bloodType: req.body.bloodType,
+        isUrgentDonor: req.body.isUrgentDonor,
+        govtId: req.body.govtId
+    }, {
+        useFindAndModify: false
+    })
+
+    res.send(`updated donor profile: ${donor}`);
 })
 
 /**
  * Takes bank stock object, updates bank in database, responds true or false
  */
-app.post('/updateBankStock', bodyParser.json(), (req, res) => {
+app.post('/updateBankStock', bodyParser.json(), async (req, res) => {
     console.log(req.body);
-    res.send('/updateBankStock is hit')
+
+    const bloodBank = await BloodBank.findOneAndUpdate({ officeNumber: req.body.officeNumber }, {
+        stock: {
+            plasma: {
+                A: req.body.stock.plasma.A,
+                B: req.body.stock.plasma.B,
+                AB: req.body.stock.plasma.AB,
+                O: req.body.stock.plasma.O,
+            },
+            blood: {
+                'A+': req.body.stock.blood['A+'],
+                'B+': req.body.stock.blood['B+'],
+                'AB+': req.body.stock.blood['AB+'],
+                'O+': req.body.stock.blood['O+'],
+                'A-': req.body.stock.blood['A-'],
+                'B-': req.body.stock.blood['B-'],
+                'AB-': req.body.stock.blood['AB-'],
+                'O-': req.body.stock.blood['O-'], 
+            } 
+        }  
+    }, {
+        useFindAndModify: false
+    })
+
+    res.send(`updated bank stock for bank: ${bloodBank}`);
 })
 
 /**
