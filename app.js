@@ -12,6 +12,7 @@ const BloodBank = require('./models/bloodBank');
 
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
+const donor = require('./models/donor.js');
 
 app.use(bodyParser.json())
 
@@ -38,7 +39,7 @@ app.post('/auth/init', async(req, res) => {
 })
 
 /**
- * Takes verification code and phone number, responds with session id and if user is already registered
+ * Takes verification code and phone number, responds with session id and if user already exists
  * (yes/no)
  * 
  * Takes:
@@ -51,6 +52,8 @@ app.post('/auth/init', async(req, res) => {
  * 
  * Responds with:
  * {
+ *  res
+ *  exists
  *  sessionId
  * }
  * 
@@ -64,12 +67,11 @@ app.post('/auth/establish', async(req, res) => {
 /**
  * Takes an object with donor fields, updates donor in database, responds true or false
  */
-app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
+app.post('/updateDonorProfile', bodyParser.json(), async (req, res) => {
     console.log(req.body);
 
-    const donor = new Donor({
+    const donor = await Donor.findOneAndUpdate({ phoneNumber: req.body.phoneNumber }, {
         name: req.body.name,
-        phoneNumber: req.body.phoneNumber,
         // TODO use gmaps api to find lat and long of address
         address: {
             location: req.body.address,
@@ -79,19 +81,43 @@ app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
         bloodType: req.body.bloodType,
         isUrgentDonor: req.body.isUrgentDonor,
         govtId: req.body.govtId
+    }, {
+        useFindAndModify: false
     })
 
-    donor.save().then(() => console.log(`Donor added to database:\n${donor}`));
-
-    res.send('/updateDonorProfile is hit');
+    res.send(`updated donor profile: ${donor}`);
 })
 
 /**
  * Takes bank stock object, updates bank in database, responds true or false
  */
-app.post('/updateBankStock', bodyParser.json(), (req, res) => {
+app.post('/updateBankStock', bodyParser.json(), async (req, res) => {
     console.log(req.body);
-    res.send('/updateBankStock is hit')
+
+    const bloodBank = await BloodBank.findOneAndUpdate({ officeNumber: req.body.officeNumber }, {
+        stock: {
+            plasma: {
+                A: req.body.stock.plasma.A,
+                B: req.body.stock.plasma.B,
+                AB: req.body.stock.plasma.AB,
+                O: req.body.stock.plasma.O,
+            },
+            blood: {
+                'A+': req.body.stock.blood['A+'],
+                'B+': req.body.stock.blood['B+'],
+                'AB+': req.body.stock.blood['AB+'],
+                'O+': req.body.stock.blood['O+'],
+                'A-': req.body.stock.blood['A-'],
+                'B-': req.body.stock.blood['B-'],
+                'AB-': req.body.stock.blood['AB-'],
+                'O-': req.body.stock.blood['O-'], 
+            } 
+        }  
+    }, {
+        useFindAndModify: false
+    })
+
+    res.send(`updated bank stock for bank: ${bloodBank}`);
 })
 
 /**
