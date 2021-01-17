@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
  */
 app.post('/auth/init', async(req, res) => {
     console.log(req.body);
-    let result = await auth.init(req.body.number);
+    let result = await auth.init(req.body.phoneNumber);
     res.send(result);
 })
 

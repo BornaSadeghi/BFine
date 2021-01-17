@@ -7,23 +7,21 @@ export default class CreateDonor extends Component {
         super(props);
 
         this.onChangeName = this.onChangeName.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
-        this.onChangeGender = this.onChangeGender.bind(this);
+        this.onChangeIsUrgentDonor = this.onChangeIsUrgentDonor.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
-        this.onChangeBloodGroup = this.onChangeBloodGroup.bind(this);
+        this.onChangeBloodType = this.onChangeBloodType.bind(this);
         this.onChangeGovID = this.onChangeGovID.bind(this);
 
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: "",
-            email: "",
-            phone_number: "",
-            gender: "",
-            gov_id: "",
+            phoneNumber: "",
             address: "",
-            blood_group: "",
+            IsUrgentDonor: false,
+            govtId: "",
+            bloodType: "",
         }
     }
 
@@ -32,24 +30,19 @@ export default class CreateDonor extends Component {
             name: e.target.value 
         });
     }
-    onChangeEmail(e){
-        this.setState({
-            email: e.target.value 
-        });
-    }
-    onChangeGender(e){
+    onChangeIsUrgentDonor(e){
         this.setState({
             gender: e.target.value 
         });
     }
     onChangeGovID(e){
         this.setState({
-            gov_id: e.target.value 
+            govtId: e.target.value 
         });
     }
     onChangePhoneNumber(e){
         this.setState({
-            phone_number: e.target.value 
+            phoneNumber: e.target.value 
         });
     }
     onChangeAddress(e){
@@ -57,9 +50,9 @@ export default class CreateDonor extends Component {
             address: e.target.value 
         });
     }
-    onChangeBloodGroup(e){
+    onChangeBloodType(e){
         this.setState({
-            blood_group: e.target.value 
+            bloodType: e.target.value 
         });
     }
 
@@ -68,25 +61,23 @@ export default class CreateDonor extends Component {
 
         const donorUser = {
             name: this.state.username,
-            email: this.state.email,
-            phone_number: this.state.phone_number,
+            phoneNumber: this.state.phone_number,
             gender: this.state.gender,
             address: this.state.address,
-            blood_group: this.state.blood_group,
-            gov_id: this.state.gov_id
+            bloodType: this.state.blood_group,
+            govtId: this.state.gov_id
         }
 
-        axios.post('http://localhost:3000/newuser', donorUser)
+        axios.post('http://localhost:3000/auth/init', donorUser)
         .then(res => console.log(res.data));
 
         this.setState({
             name: '',
-            email: '',
-            phone_number: '',
-            gender: '',
+            phoneNumber: '',
+            IsUrgentDonor: false,
             address: '',
-            blood_group: '',
-            gov_id: '',
+            bloodType: '',
+            govtId: '',
         })
     }
 
@@ -105,30 +96,21 @@ export default class CreateDonor extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Email: </label>
-                        <input 
-                        type="text"
-                        className="form-control"
-                        value={this.state.email}
-                        onChange={this.onChangeEmail}
-                        />
-                    </div>
-                    <div className="form-group">
                         <label>Phone Number: </label>
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.phone_number}
+                        value={this.state.phoneNumber}
                         onChange={this.onChangePhoneNumber}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Gender: </label>
+                        <label>Is Urgent Donor: </label>
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.gender}
-                        onChange={this.onChangeGender}
+                        value={this.state.IsUrgentDonor}
+                        onChange={this.onChangeIsUrgentDonor}
                         />
                     </div>
                     <div className="form-group">
@@ -145,17 +127,17 @@ export default class CreateDonor extends Component {
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.gov_id}
+                        value={this.state.govtId}
                         onChange={this.onChangeGovID}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Blood Group: </label>
+                        <label>Blood Type: </label>
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.blood_group}
-                        onChange={this.onChangeBloodGroup}
+                        value={this.state.bloodType}
+                        onChange={this.onChangeBloodType}
                         />
                     </div>
                     <div className="form-group">
