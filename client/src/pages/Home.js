@@ -1,11 +1,15 @@
 import React from 'react';
 import '../styles/Home.css';
 import bloodDonate from '../assets/blood-donate.png';
+import GoogleSuggest from '../components/GoogleSuggest';
 
 function Home() {
     return (
         <div className="home-flexbox-wrapper">
             <h1 className="home-title"><span className="home-span">Blood</span> Bae</h1>
+            <div className="search-form">
+            <GoogleSuggest />
+            </div>
             <div className="home-flexbox-container-1">
                 <div className="home-logo-container">
                     <img className="blood-logo" src={ bloodDonate } alt="logo"></img>
