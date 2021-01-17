@@ -9,7 +9,8 @@ const Donor = require('./models/Donor.js');
 const PORT = 5000;
 const app = express();
 const mongo_url = process.env.DB_URL;
-
+const auth = require('./services/auth');
+app.use(bodyParser.json())
 
 mongoose.connect(mongo_url, {
     useNewUrlParser: true,
@@ -27,19 +28,22 @@ app.get('/', (req, res) => {
 /**
  * Takes the mobile number and user type (donor/bloodbank) and responds with a verification code, sent
  * to the user through SMS.
+ * (Maybe also send the entire donor?)
  */
-app.post('/auth/init', bodyParser.json(), (req, res) => {
+app.post('/auth/init', async(req, res) => {
     console.log(req.body);
-    res.send('/auth/init is hit');
+    let result = await auth.init(req.body.number);
+    res.send(result);
 })
 
 /**
  * Takes verification code and phone number, responds with session id and if user is already registered
  * (yes/no)
  */
-app.post('/auth/establish', bodyParser.json(), (req, res) => {
+app.post('/auth/establish', async(req, res) => {
     console.log(req.body);
-    res.send('/auth/establish is hit');
+    let result = await auth.establish(req.body.request_id, req.body.otp);
+    res.send(result);
 })
 
 /**
@@ -76,8 +80,8 @@ app.post('/urgent/make', bodyParser.json(), (req, res) => {
 
 // GET
 
-app.get('/urgent/details/:id', bodyParser.json(), (req, res) => {
-    console.log(`body: ${req.body}, params: ${req.params}`);
+app.get('/urgent/details/:id', (req, res) => {
+    console.log(req.params);
     res.send('/urgent/details/<id> is hit')
 })
 
