@@ -8,7 +8,7 @@ const bloodBankModel = require('../models/bloodBank');
 const auth = {};
 
 auth.init = async(phoneNumber) => {
-    return new Promise((resolve) => {
+    return new Promise(async(resolve) => {
         try {
 
             let request_id = await message.otp(phoneNumber);
