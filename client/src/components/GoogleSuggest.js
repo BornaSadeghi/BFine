@@ -41,6 +41,8 @@ class GoogleSuggest extends React.Component {
                 console.log(res.data)
             });
 
+        // redirect
+        window.location.href = "http://localhost:3000/search";
     }
 
     render() {
