@@ -32,15 +32,15 @@ body, html {
 
 .form-wrapper {
     border-radius: 60px;
-    background-color: rgb(233, 230, 230);
-    margin-right: 55vh;
-    margin-left: 55vh;
+    background-color: rgb(133, 133, 133);
+    margin-right: 25vh;
+    margin-left:25vh;
 }
 
 label {
     font-size: 1.1em;
     padding-bottom: 2vh;
-    color: rgb(12, 10, 10);
+    color: rgb(253, 253, 253);
 }
 
 .first {

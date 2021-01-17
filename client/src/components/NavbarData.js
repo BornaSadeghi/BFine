@@ -8,10 +8,6 @@ export const NavbarData = [
         path: '/profile',
     }, 
     {
-        title: 'Donor SignUp',
-        path: '/donor-signup',
-    }, 
-        {
         title: 'Donor Login',
         path: '/donor-login',
     },

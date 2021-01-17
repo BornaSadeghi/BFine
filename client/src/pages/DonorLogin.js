@@ -3,7 +3,7 @@ import '../styles/SignUp.css';
 import CreateDonor from '../components/CreateDonor';
 import LoginDonor from '../components/LoginDonor';
 
-function DonorSignUp() {
+function DonorLogin() {
     return (
         <div>
             <LoginDonor />
@@ -11,4 +11,4 @@ function DonorSignUp() {
     )
 }
 
-export default DonorSignUp;
+export default DonorLogin;
