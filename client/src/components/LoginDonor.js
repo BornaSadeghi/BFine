@@ -44,7 +44,12 @@ export default class CreateDonor extends Component {
             })
             .then(res => {
                 console.log(res.data);
-                <Redirect to="/"/>
+                if (res.exists){ // if user exists already
+                    window.location.assign('/search')
+                } else {
+                    window.location.assign('/donor-signup')
+                }
+                
             }).catch(err => console.log(err));
         } else { // do auth.init
             axios.post('http://localhost:3000/auth/init', {phoneNumber: this.state.phoneNumber})

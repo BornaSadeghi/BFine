@@ -68,9 +68,10 @@ export default class CreateDonor extends Component {
             govtId: this.state.govtId
         }
 
-        axios.post('http://localhost:3000/auth/init', donorUser) // auth.init
+        axios.post('http://localhost:3000/updateDonorProfile', donorUser) // auth.init
         .then(res => {
             console.log(res.data)
+            window.location.assign('/search');
         });
 
         this.setState({
