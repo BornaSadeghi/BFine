@@ -11,6 +11,7 @@ body, html {
 }
 
 .donor-title {
+    padding: 7vh;
     font-size: 3em;
     font-family: 'Montserrat', sans-serif;
 }
@@ -40,7 +41,7 @@ body, html {
 label {
     font-size: 1.1em;
     padding-bottom: 2vh;
-    color: rgb(12, 10, 10);
+    color: rgb(255, 255, 255);
 }
 
 .first {

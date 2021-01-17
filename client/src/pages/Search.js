@@ -74,6 +74,7 @@ const Search = (props) => {
     )
 }
 
+
 Search.defaultProps = {
     search: "Canada",
     results: [{
