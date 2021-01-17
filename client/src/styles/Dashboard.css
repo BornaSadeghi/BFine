@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashboard-progress {
+    border-radius: 40px;
+    margin: 5vh;
+    margin-top: 1vh;
+    width: 50vh;
+    background-color: rgb(246, 243, 243);
+  }
+  
+  .dashboard-bar-1 {
+    border-radius: 40px;
+    width: 10%;
+    height: 30px;
+    background-color: rgb(255, 64, 64);
+  }
+  .dashboard-bar-2 {
+    border-radius: 40px;
+    width: 40%;
+    height: 30px;
+    background-color: rgb(255, 64, 64);
+  }
+  .dashboard-bar-3 {
+    border-radius: 40px;
+    width: 70%;
+    height: 30px;
+    background-color: rgb(255, 64, 64);
+  }
+  .dashboard-bar-4 {
+    border-radius: 40px;
+    width: 90%;
+    height: 30px;
+    background-color: rgb(255, 64, 64);
+  }
+
+  .dashboard-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      margin: 7vh;
+  }
+
+  .blood-type-label {
+      background-color: rgb(144, 248, 196);
+      width: fit-content;
+      padding: 1vh;
+      border-radius: 40px;
+      padding-right: 5vh;
+      padding-left: 5vh;
+      font-family: 'Montserrat', sans-serif;
+      color: rgb(34, 28, 28);
+      font-size: 1.1em;
+      text-align: left;
+      margin-left: 5vh;
+      margin-top: 3vh;
+  }
+
+  .dash-span {
+      color: rgb(255, 61, 61);
+      font-weight: bold;
+  }
+
+  .dash-container {
+      border-radius: 60px;
+      padding: 3vh;
+      margin: 3vh;
+      width: fit-content;
+      margin-left: 15vh;
+      background-color: rgb(231, 228, 228);
+  }
+
+  .dash-container p {
+    margin-left: 5vh;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background-color: rgb(85, 84, 84);
+    width: fit-content;
+    padding: 2vh;
+    padding-right: 4vh;
+    padding-left: 4vh;
+    border-radius: 40px;
+}
+
+.dash-map {
+    border-radius: 40px;
+}

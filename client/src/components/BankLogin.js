@@ -45,7 +45,7 @@ export default class BankLogin extends Component {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.exists) { // if user exists already
-                        window.location.assign('/search')
+                        window.location.assign('/dashboard')
                     } else {
                         window.location.assign('/donor-signup')
                     }

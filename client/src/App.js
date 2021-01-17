@@ -7,6 +7,7 @@ import DonorSignUp from './pages/DonorSignUp';
 import DonorLogin from './pages/DonorLogin';
 import BankSignUp from './pages/BankSignUp';
 import Search from './pages/Search';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/bank-signup' component={ BankSignUp }/>
           <Route path='/profile' component={ MyProfile }/>
           <Route path='/search' component={ Search } />
+          <Route path='/dashboard' component={ Dashboard } />
         </Switch>
       </Router>
     </>
