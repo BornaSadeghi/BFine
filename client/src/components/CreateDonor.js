@@ -32,7 +32,7 @@ export default class CreateDonor extends Component {
     }
     onChangeIsUrgentDonor(e){
         this.setState({
-            gender: e.target.value 
+            IsUrgentDonor: e.target.value 
         });
     }
     onChangeGovID(e){
@@ -60,12 +60,12 @@ export default class CreateDonor extends Component {
         e.preventDefault();
 
         const donorUser = {
-            name: this.state.username,
-            phoneNumber: this.state.phone_number,
-            gender: this.state.gender,
+            name: this.state.name,
+            phoneNumber: this.state.phoneNumber,
+            IsUrgentDonor: this.state.IsUrgentDonor,
             address: this.state.address,
-            bloodType: this.state.blood_group,
-            govtId: this.state.gov_id
+            bloodType: this.state.bloodType,
+            govtId: this.state.govtId
         }
 
         axios.post('http://localhost:3000/auth/init', donorUser)

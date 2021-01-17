@@ -12,7 +12,7 @@ export default class CreateDonor extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            phone_number: "",
+            phoneNumber: "",
             code: ""
         }
     }
@@ -24,7 +24,7 @@ export default class CreateDonor extends Component {
     }
     onChangePhoneNumber(e){
         this.setState({
-            phone_number: e.target.value 
+            phoneNumber: e.target.value 
         });
     }
 
@@ -32,7 +32,7 @@ export default class CreateDonor extends Component {
         e.preventDefault();
 
         const donorUser = {
-            phone_number: this.state.phone_number,
+            phoneNumber: this.state.phoneNumber,
             code: this.state.code,
         }
 
@@ -40,7 +40,7 @@ export default class CreateDonor extends Component {
         .then(res => console.log(res.data));
 
         this.setState({
-            phone_number: '',
+            phoneNumber: '',
             code: '',
         })
     }
@@ -55,7 +55,7 @@ export default class CreateDonor extends Component {
                         <input 
                         type="text"
                         className="form-control"
-                        value={this.state.phone_number}
+                        value={this.state.phoneNumber}
                         onChange={this.onChangePhoneNumber}
                         />
                     </div>
