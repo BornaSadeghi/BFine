@@ -39,7 +39,7 @@ app.post('/auth/init', async(req, res) => {
 })
 
 /**
- * Takes verification code and phone number, responds with session id and if user is already registered
+ * Takes verification code and phone number, responds with session id and if user already exists
  * (yes/no)
  * 
  * Takes:
@@ -52,6 +52,8 @@ app.post('/auth/init', async(req, res) => {
  * 
  * Responds with:
  * {
+ *  res
+ *  exists
  *  sessionId
  * }
  * 
