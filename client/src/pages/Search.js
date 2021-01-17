@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/MyProfile.css';
 
-function MyProfile() {
+function Search() {
     return (
         <div>
-            <h1>My Profile</h1>
+            <h1>Search</h1>
         </div>
     )
 }
 
-export default MyProfile;
+export default Search;
