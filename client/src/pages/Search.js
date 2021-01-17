@@ -1,12 +1,14 @@
 import React from 'react';
 import '../styles/Search.css';
 import icon from '../assets/logo192.png'
+import SearchResultMap from "../components/SearchResultMap"
 
 const Search = (props) => {
     const { search, results } = props;
     return (
         <div className="search-flexbox-wrapper container">
             <h4 className="search-title font-weight-bold">Search results for <span className="search-span">{search}</span></h4>
+            <SearchResultMap props={results}/>
             {
                 results.map((item, index) => {
                     return (
