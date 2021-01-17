@@ -61,7 +61,7 @@ export default class CreateDonor extends Component {
                     </div>
                     <div className="form-group last">
                         <label>Verification Code: </label>
-                        <input 
+                        <input disabled
                         type="text"
                         className="form-control"
                         value={this.state.code}
