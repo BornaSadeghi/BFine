@@ -44,7 +44,7 @@ export default class CreateDonor extends Component {
             })
             .then(res => {
                 console.log(res.data);
-                if (res.exists){ // if user exists already
+                if (res.data.exists){ // if user exists already
                     window.location.assign('/search')
                 } else {
                     window.location.assign('/donor-signup')
