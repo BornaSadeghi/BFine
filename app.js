@@ -12,6 +12,7 @@ const BloodBank = require('./models/bloodBank');
 
 const mongo_url = process.env.DB_URL;
 const auth = require('./services/auth');
+const donor = require('./models/donor.js');
 
 app.use(bodyParser.json())
 
@@ -64,12 +65,11 @@ app.post('/auth/establish', async(req, res) => {
 /**
  * Takes an object with donor fields, updates donor in database, responds true or false
  */
-app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
+app.post('/updateDonorProfile', bodyParser.json(), async (req, res) => {
     console.log(req.body);
 
-    const donor = new Donor({
+    const donor = await Donor.findOneAndUpdate({ phoneNumber: req.body.phoneNumber }, {
         name: req.body.name,
-        phoneNumber: req.body.phoneNumber,
         // TODO use gmaps api to find lat and long of address
         address: {
             location: req.body.address,
@@ -79,11 +79,11 @@ app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
         bloodType: req.body.bloodType,
         isUrgentDonor: req.body.isUrgentDonor,
         govtId: req.body.govtId
+    }, {
+        useFindAndModify: false
     })
 
-    donor.save().then(() => console.log(`Donor added to database:\n${donor}`));
-
-    res.send('/updateDonorProfile is hit');
+    res.send(`updated donor profile: ${donor}`);
 })
 
 /**
@@ -91,6 +91,22 @@ app.post('/updateDonorProfile', bodyParser.json(), (req, res) => {
  */
 app.post('/updateBankStock', bodyParser.json(), (req, res) => {
     console.log(req.body);
+
+    const bloodBank = new BloodBank({
+        name: req.body.name,
+        helplineNumber: req.body.helplineNumber,
+        officeNumber: req.body.officeNumber,
+        // TODO use gmaps api to find lat and long of address
+        address: {
+            location: req.body.address,
+            lat: 0, // temporary
+            long: 0
+        },
+        stock: req.body.stock
+    })
+
+    bloodBank.save().then(() => console.log(`Blood bank added to database:\n${bloodBank}`));
+
     res.send('/updateBankStock is hit')
 })
 
