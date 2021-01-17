@@ -16,6 +16,66 @@ body, html {
 }
 
 .donor-wrapper {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+.form-group {
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
+    padding: 1vh;
+    padding-left: 10vh;
+    padding-right: 10vh;
+}
+
+.form-wrapper {
+    border-radius: 60px;
+    background-color: rgb(233, 230, 230);
+    margin-right: 55vh;
+    margin-left: 55vh;
+}
+
+label {
+    font-size: 1.1em;
+    padding-bottom: 2vh;
+    color: rgb(12, 10, 10);
+}
+
+.first {
+    padding-top: 10vh;
+}
+
+.button {
+    padding-bottom: 10vh;
+    margin-left: 6vh;
+    margin-right: 6vh;
+}
+
+input {
+    border-radius: 30px;
+    padding: 1.1vh;
+    border: none;
+    font-size: 1.8em;
+}
+
+.btn {
+    padding: 2vh;
+    margin-top: 4vh;
+    font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: rgb(12, 10, 10);
+    background-color: rgb(67, 255, 192);
+    border-radius: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .form-wrapper {
+        border-radius: 60px;
+        background-color: rgb(233, 230, 230);
+        margin-right: 10vh;
+        margin-left: 10vh;
+    }
 }
