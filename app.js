@@ -89,25 +89,16 @@ app.post('/updateDonorProfile', bodyParser.json(), async (req, res) => {
 /**
  * Takes bank stock object, updates bank in database, responds true or false
  */
-app.post('/updateBankStock', bodyParser.json(), (req, res) => {
+app.post('/updateBankStock', bodyParser.json(), async (req, res) => {
     console.log(req.body);
 
-    const bloodBank = new BloodBank({
-        name: req.body.name,
-        helplineNumber: req.body.helplineNumber,
-        officeNumber: req.body.officeNumber,
-        // TODO use gmaps api to find lat and long of address
-        address: {
-            location: req.body.address,
-            lat: 0, // temporary
-            long: 0
-        },
+    const bloodBank = await BloodBank.findOneAndUpdate({ officeNumber: req.body.officeNumber }, {
         stock: req.body.stock
+    }, {
+        useFindAndModify: false
     })
 
-    bloodBank.save().then(() => console.log(`Blood bank added to database:\n${bloodBank}`));
-
-    res.send('/updateBankStock is hit')
+    res.send(`updated bank stock for bank: ${bloodBank}`);
 })
 
 /**
