@@ -47,7 +47,7 @@ class GoogleSuggest extends React.Component {
         const { search, value } = this.state
         return (
             <ReactGoogleMapLoader
-                className="form-control"
+                className="form-control-1"
                 params={{
                     key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
                     libraries: "places,geocode",
@@ -60,15 +60,15 @@ class GoogleSuggest extends React.Component {
                                 googleMaps={googleMaps}
                                 onSelectSuggest={this.handleSelectSuggest.bind(this)}
                             >
-                                <form className="form-inline" onSubmit={this.onSubmit}>
+                                <form className="form-inline-1" onSubmit={this.onSubmit}>
                                     <input
-                                        className="form-control mb-2 mr-2"
+                                        className="form-control-1 mb-2 mr-2"
                                         type="text"
                                         value={value}
                                         placeholder="Search a location"
                                         onChange={this.handleInputChange.bind(this)}
                                     />
-                                    <input type="submit" value="Find Blood Banks" className="btn btn-primary" />
+                                    <input type="submit" value="Find Blood Banks" className="btn mt-0 btn-primary" />
                                 </form>
                             </ReactGooglePlacesSuggest>
                         </div>

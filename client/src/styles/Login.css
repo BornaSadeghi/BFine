@@ -21,7 +21,7 @@ body, html {
     padding-bottom: 10vh;
 }
 
-.form-group {
+.form-group-1 {
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
@@ -32,15 +32,15 @@ body, html {
 
 .form-wrapper {
     border-radius: 60px;
-    background-color: rgb(133, 133, 133);
-    margin-right: 25vh;
-    margin-left:25vh;
+    background-color: rgb(233, 230, 230);
+    margin-right: 55vh;
+    margin-left: 55vh;
 }
 
 label {
     font-size: 1.1em;
     padding-bottom: 2vh;
-    color: rgb(253, 253, 253);
+    color: rgb(12, 10, 10);
 }
 
 .first {

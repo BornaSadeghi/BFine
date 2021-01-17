@@ -89,61 +89,61 @@ export default class CreateDonor extends Component {
             <div className="donor-wrapper">
                 <h3 className="donor-title">Create New Donor</h3>
                 <form className="form-wrapper" onSubmit={this.onSubmit}>
-                    <div className="form-group first">
+                    <div className="form-group-1 first">
                         <label>Name: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.name}
                         onChange={this.onChangeName}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-1">
                         <label>Phone Number: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.phoneNumber}
                         onChange={this.onChangePhoneNumber}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-1">
                         <label>Is Urgent Donor: </label>
                         <input 
                         type="checkbox"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.IsUrgentDonor}
                         onChange={this.onChangeIsUrgentDonor}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-1">
                         <label>Address: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.address}
                         onChange={this.onChangeAddress}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-1">
                         <label>Government ID Number: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.govtId}
                         onChange={this.onChangeGovID}
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-1">
                         <label>Blood Type: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.bloodType}
                         onChange={this.onChangeBloodType}
                         />
                     </div>
-                    <div className="form-group button">
+                    <div className="form-group-1 button">
                         <input type="submit" value="Sign up" className="btn btn-primary"/>
                     </div>
                 </form>

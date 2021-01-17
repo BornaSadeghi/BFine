@@ -71,25 +71,25 @@ export default class CreateDonor extends Component {
             <div className="donor-wrapper">
                 <h3 className="donor-title">Donor Login</h3>
                 <form className="form-wrapper" onSubmit={this.onSubmit}>
-                    <div className="form-group first">
+                    <div className="form-group-1 first">
                         <label>Phone Number: </label>
                         <input 
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.phoneNumber}
                         onChange={this.onChangePhoneNumber}
                         />
                     </div>
-                    <div className="form-group last">
+                    <div className="form-group-1 last">
                         <label>Verification Code: </label>
                         <input disabled={this.state.codeSent ? "" : "disabled"}
                         type="text"
-                        className="form-control"
+                        className="form-control-1"
                         value={this.state.code}
                         onChange={this.onChangeCode}
                         />
                     </div>
-                    <div className="form-group button">
+                    <div className="form-group-1 button">
                         <input type="submit" value="Submit" className="btn btn-primary"/>
                     </div>
                 </form>
