@@ -20,7 +20,7 @@ function App() {
           <Route path='/donor-login' component={ DonorLogin }/>
           <Route path='/bank-signup' component={ BankSignUp }/>
           <Route path='/profile' component={ MyProfile }/>
-          <Route path='/search' component={Search} />
+          <Route path='/search' component={ Search } />
         </Switch>
       </Router>
     </>

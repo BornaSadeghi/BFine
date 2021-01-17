@@ -21,7 +21,7 @@ body, html {
     padding-bottom: 10vh;
 }
 
-.form-group {
+.form-group-1 {
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
@@ -32,15 +32,15 @@ body, html {
 
 .form-wrapper {
     border-radius: 60px;
-    background-color: rgb(133, 133, 133);
-    margin-right: 25vh;
-    margin-left:25vh;
+    background-color: rgb(110, 109, 109);
+    margin-right: 55vh;
+    margin-left: 55vh;
 }
 
 label {
     font-size: 1.1em;
     padding-bottom: 2vh;
-    color: rgb(253, 253, 253);
+    color: rgb(12, 10, 10);
 }
 
 .first {
@@ -60,7 +60,7 @@ input {
     font-size: 1.8em;
 }
 
-.btn {
+.btn-1 {
     padding: 2vh;
     margin-top: 4vh;
     font-size: 1.1em;
@@ -69,6 +69,10 @@ input {
     color: rgb(12, 10, 10);
     background-color: rgb(67, 255, 192);
     border-radius: 30px;
+}
+
+.btn:focus {
+    color: inherit;
 }
 
 @media screen and (max-width: 768px) {

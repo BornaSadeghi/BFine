@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.search-span {
+    color: rgb(247, 76, 76);
+}
+
+
+.search-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(39, 39, 39);
+    font-size: 2.5em;
+    margin: 2vh;
+}   
+
+.search-box {
+    padding: 28px;
+    margin: 45px;
+    color: rgb(39, 39, 39);
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 50px;
+}
+
+.search-box p {
+    color: #575757;
+    margin-top: -5px;
+}
+
+.map-link{
+    border: 2px solid rgb(247, 76, 76);
+    color: rgb(247, 76, 76);
+    background: white;
+    padding: 15px;
+    float: right;
+
+
+}
+
+.map-link:hover{
+    color: rgb(247, 76, 76);
+}
