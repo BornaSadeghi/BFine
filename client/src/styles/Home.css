@@ -28,7 +28,7 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     color: rgb(39, 39, 39);
     font-size: 4em;
-    margin-bottom: 7vh;
+    margin-bottom: 1vh;
 }   
 
 .home-flexbox-container-1 {
@@ -81,4 +81,26 @@ body, html {
         padding-left: 0vh;
         padding-right: 0vh;
     }
+}
+
+.search-form {
+    margin-bottom: 5vh;
+}
+
+.search-form input[type=text] {
+    border: 2px solid #575757;
+    width: 500px;
+    margin-right: 20px;
+}
+
+
+.search-form input[type=submit] {
+    border: 2px solid rgb(247, 76, 76);
+    color: rgb(247, 76, 76);
+    background: white;
+    font-weight: 600;
+}
+
+input[type=submit] {
+    cursor: pointer;
 }

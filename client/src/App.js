@@ -6,6 +6,7 @@ import MyProfile from './pages/MyProfile';
 import DonorSignUp from './pages/DonorSignUp';
 import DonorLogin from './pages/DonorLogin';
 import BankSignUp from './pages/BankSignUp';
+import Search from './pages/Search';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/donor-login' component={ DonorLogin }/>
           <Route path='/bank-signup' component={ BankSignUp }/>
           <Route path='/profile' component={ MyProfile }/>
+          <Route path='/search' component={Search} />
         </Switch>
       </Router>
     </>
