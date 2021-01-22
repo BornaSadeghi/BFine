@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# BFine Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://i.imgur.com/52DvE0i.png" title="B-Fine - Blood donations: Easier, More Efficient"/>
 
-## Available Scripts
+### Inspiration
+Globally, millions of lives are lost each year due to chronic blood shortages, at the same time millions of liters of blood is wasted every year due to overstocking of blood at certain locations. With the pandemic in place, there has also been shortage of blood in many countries globally.
 
-In the project directory, you can run:
+### What it does
+BFine is a web application that helps donors identify donation locations (blood banks) in greater need of their blood type, allows donors to register for 'Just-in-time' donations & allows health institutions (hospital/blood bank) to find stock of blood in other locations nearby or raise an 'urgent blood request', in which case the network of 'just-in-time' donors registered in nearby locations would be searched for a potential donor (in an Uber-like fashion) using text messages and automated follow-up voice calls.
 
-### `npm start`
+### How we built it
+The application has been built using NodeJS on the backend with MongoDB as the datastore and Vonage as the SMS, voice & verification/authentication gateway. The frontend has been built using React. The Google Maps API was used to aid with location-based search.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Challenges we ran into
+There was some degree of miscommunication amongst us due to the online mode of working, however we resolved the same through more frequent voice meetings during the course of our work.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Accomplishments that we are proud of
+We are proud of our implementation of the 'urgent donor search' functionality. We feel that, with a little more polishing, this can truly help in making the process of finding a blood donor in urgent situations easier and more effective.
 
-### `npm test`
+### What we learned
+We improved our remote communication skills in the process and learned a lot about integration of SMS and voice services in web applications.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### What's next for BFine
+This is a lot of scope for refinement for BFine and that is what we will focus on. We intend to develop BFine such that it is compliant with regulations in most countries and can used used globally (both on small and large scale) as an open source project with little modification for each location in which it is used.
