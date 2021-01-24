@@ -6,7 +6,7 @@ import GoogleSuggest from '../components/GoogleSuggest';
 function Home() {
     return (
         <div className="home-flexbox-wrapper">
-            <h1 className="home-title"><span className="home-span">Blood</span> Bae</h1>
+            <h1 className="home-title"><span className="home-span">B</span>Fine</h1>
             <div className="search-form">
             <GoogleSuggest />
             </div>
